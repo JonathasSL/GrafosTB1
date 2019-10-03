@@ -5,6 +5,7 @@ public class Aplicacao {
       g.addVertice("A");
       g.addVertice("B");
       g.addAresta(false,4,g.vertices.get(0),g.vertices.get(1));
+
       System.out.println(g.toString());
     }
 }
