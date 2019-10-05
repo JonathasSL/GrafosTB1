@@ -10,7 +10,7 @@ public class Grafo {
     public boolean isPendente(Vertice v){ return v.getGrau() == 1; } // Se o vértice é de grau 1, ele é pendente
 
     public boolean isAdjacente(Vertice v1, Vertice v2){
-        if (v1.getGrau() == 0 ) // Se os vértice tiver grau 0 ele não é adjacente a ninguém
+        if (v1.getGrau() == 0 || v2.getGrau() == 0) // Se os vértices tiverem grau 0 eles não são adjacentes a ninguém
             return false;
         for (Aresta aresta : arestas) {
             if (aresta.getV1() == v1 && aresta.getV2() == v2) //Verifica se os vértices possuem uma aresta em comum numa
