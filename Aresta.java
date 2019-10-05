@@ -23,8 +23,7 @@ public class Aresta {
     @Override
     public String toString() {
         if (dirigido){
-            return "" +
-                        " Peso= " + peso +
+            return      " Peso= " + peso +
                         ", vértice origem= " + v1.getNome() +
                         ", vértice destino= " + v2.getNome();
         } else return  " Peso=" + peso +
