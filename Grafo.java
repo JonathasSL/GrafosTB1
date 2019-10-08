@@ -9,9 +9,19 @@ public class Grafo {
 
     public boolean isPendente(Vertice v){ return v.getGrau() == 1; } // Se o vértice é de grau 1, ele é pendente
 
+    public boolean isRegular(){
+        int x = vertices.get(0).getGrau(); // Pega o grau do primeiro vértice
+        for ( int i = 1; i < vertices.size(); i++){
+            if (x != vertices.get(i).getGrau()) // Se ele tiver grau diferente de qualquer outro vértice não é regular
+                return false;
+        }
+        return true;
+    }
+
     public boolean isAdjacente(Vertice v1, Vertice v2){
-        if (v1.getGrau() == 0 || v2.getGrau() == 0) // Se os vértices tiverem grau 0 eles não são adjacentes a ninguém
-            return false;
+        if (this.isNulo() || v1.getGrau() == 0 || v2.getGrau() == 0){ // Se os vértices tiverem grau 0 eles não são adjacentes a ninguém
+                return false;
+        }
         for (Aresta aresta : arestas) {
             if (aresta.getV1() == v1 && aresta.getV2() == v2) //Verifica se os vértices possuem uma aresta em comum numa
                return true;                                   // ordem
@@ -23,9 +33,7 @@ public class Grafo {
         return false;
     }
 
-    public boolean isIsolado(Vertice v){
-        return v.getGrau() == 0; // Se o vértice tem grau 0, ele é isolado e não possui vizinhos
-    }
+    public boolean isIsolado(Vertice v){ return v.getGrau() == 0; } // Se o vértice tem grau 0, ele é isolado e não possui vizinhos
 
     @Override
     public String toString() {
